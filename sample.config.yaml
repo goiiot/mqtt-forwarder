@@ -1,8 +1,19 @@
+# local listening address
+# schema can be one of [udp, udp4, udp6, unixgram]
 listen: udp://localhost:1234
+# target address to send messages received from mqtt broker
+# schema can be one of [udp, udp4, udp6, unixgram]
 send_to: udp://localhost:8080
+# log data received from local listener and those sending to send_to
+log_data: true
+# max size of one message packet (the size of buffer used to recv udp/unixgram messages)
+max_msg_size: 1500
 
+# mqtt config
 mqtt:
+  # broker address (tcp only)
   broker: localhost:1883
+  # initial mqtt CONNECT packet
   connect_packet:
     username: myuser
     password: mypass
@@ -10,13 +21,16 @@ mqtt:
     client_id: myid
     # keepalive interval in second
     keepalive: 10
+  # set tls certificate, leave it empty if you do not want to use it
   tls:
     ca_file: /etc/tls/mqtt-ca.pem
     cert_file: /etc/tls/mqtt-cert.pem
     key_file: /etc/tls/mqtt-key.pem
+  # topic to subscribe, messages from this topic will be sent to send_to target
   sub:
     topic: /test/gw-1/tx
     qos: 0
+  # topic to publish received udp/unixgram message
   pub:
     topic: /test/gw-1/rx
     qos: 0

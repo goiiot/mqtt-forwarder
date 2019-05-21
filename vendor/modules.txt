@@ -1,0 +1,10 @@
+# github.com/goiiot/libmqtt v0.0.0-20181213095547-6fed8272b13b
+github.com/goiiot/libmqtt
+# github.com/inconshreveable/mousetrap v1.0.0
+github.com/inconshreveable/mousetrap
+# github.com/spf13/cobra v0.0.4
+github.com/spf13/cobra
+# github.com/spf13/pflag v1.0.3
+github.com/spf13/pflag
+# gopkg.in/yaml.v2 v2.2.2
+gopkg.in/yaml.v2

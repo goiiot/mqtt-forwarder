@@ -1,0 +1,22 @@
+listen: udp://localhost:1234
+send_to: udp://localhost:8080
+
+mqtt:
+  broker: localhost:1883
+  connect_packet:
+    username: myuser
+    password: mypass
+    clean_session: true
+    client_id: myid
+    # keepalive interval in second
+    keepalive: 10
+  tls:
+    ca_file: /etc/tls/mqtt-ca.pem
+    cert_file: /etc/tls/mqtt-cert.pem
+    key_file: /etc/tls/mqtt-key.pem
+  sub:
+    topic: /test/gw-1/tx
+    qos: 0
+  pub:
+    topic: /test/gw-1/rx
+    qos: 0

@@ -7,11 +7,11 @@ A simple `MQTT <-> UDP/UNIXGRAM` bridge.
 - Rx (recv from `MQTT`)
   - Subscribe one `MQTT` topic.
   - Wait and receive messages sent from the subscribed `MQTT` topic.
-  - Send received topic messages to sender addr (via `UDP/UNIXGRAM`).
+  - Send received topic messages to the target addr (via `UDP/UNIXGRAM`).
 - Tx (publish to `MQTT`)
   - Listen one `UDP`/`UNIXGRAM` address.
   - Wait and receive messages sent to the listening address.
-  - Send received messages to the designated publish `MQTT` topic.
+  - Publish received messages to the designated `MQTT` topic.
 
 <img src="./img/workflow.svg" width="600">
 

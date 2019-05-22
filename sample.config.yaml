@@ -1,9 +1,9 @@
 # local listening address
 # schema can be one of [udp, udp4, udp6, unixgram]
-listen: udp://localhost:1234
+listen: udp://127.0.0.1:1234
 # target address to send messages received from mqtt broker
 # schema can be one of [udp, udp4, udp6, unixgram]
-send_to: udp://localhost:8080
+send_to: udp://127.0.0.1:8080
 # log data received from local listener and those sending to send_to
 log_data: true
 # max size of one message packet (the size of buffer used to recv udp/unixgram messages)

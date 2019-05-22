@@ -59,11 +59,11 @@ func CreateMQTTClient(config *Config) (libmqtt.Client, error) {
 
 	client.HandleSub(func(topics []*libmqtt.Topic, err error) {
 		if err != nil {
-			log.Printf("failed to subscribe topic(s) [%v]: %v", topics, err)
+			log.Printf("failed to subscribe topic %v: %v", topics, err)
 			return
 		}
 
-		log.Printf("subscribed to topic(s) [%s]", topics)
+		log.Printf("subscribed to topic %v", topics)
 	})
 
 	client.Connect(func(server string, code byte, err error) {

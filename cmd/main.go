@@ -168,6 +168,8 @@ func run(ctx context.Context, config *Config) error {
 		config.MaxMsgSize = 1500
 	}
 
+	log.Printf("listening at [%s], will send mqtt msg to [%s]", config.Listen, config.SendTo)
+
 	buf := make([]byte, config.MaxMsgSize)
 	for {
 		n, rAddr, err := listenConn.ReadFrom(buf[0:])
@@ -187,15 +189,14 @@ func run(ctx context.Context, config *Config) error {
 			})
 		}
 
-		if err != nil {
-			log.Printf("exception in readFrom %v: %v", rAddr, err)
-		}
-
 		select {
 		case <-ctx.Done():
 			client.Destroy(true)
 			return nil
 		default:
+			if err != nil {
+				log.Printf("exception in readFrom %v: %v", rAddr, err)
+			}
 		}
 	}
 }
